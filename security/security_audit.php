@@ -191,7 +191,7 @@ foreach ($features as $f) {
                 </strong>
                 <p class="text-muted" style="margin:4px 0 0;">
                     <?php echo $totalChecks - $passedChecks; ?> missing
-                    (<?php echo $totalChecks - $passedChecks === 0 ? 'all tables created and all files implemented' : 'see red badges below — usually means a SQL table needs to be created in phpMyAdmin'); ?>
+                    (<?php echo $totalChecks - $passedChecks === 0 ? 'all tables created and all files implemented' : 'see red badges below — usually means a SQL table needs to be created in phpMyAdmin'; ?>)
                 </p>
             </div>
         </div>

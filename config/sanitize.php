@@ -35,9 +35,7 @@ function validateCSRFToken(?string $token): bool {
 return hash_equals($_SESSION['csrf_token'], $token);
 }
 
-?> inside any <form>
 function csrfField(): string {
     $token = generateCSRFToken();
     return '<input type="hidden" name="csrf_token" value="' . htmlspecialchars($token, ENT_QUOTES) . '">';
 }
-?>
