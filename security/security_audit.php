@@ -44,6 +44,8 @@ $checks = [
         'admin/login_attempts.php'         => fileExists2("$base/admin/login_attempts.php"),
         'admin/security_logs.php'          => fileExists2("$base/admin/security_logs.php"),
         'security/sql_injection_demo.php'  => fileExists2("$base/security/sql_injection_demo.php"),
+        'includes/session.php'             => fileExists2("$base/includes/session.php"),
+        'security/security_audit.php'      => fileExists2("$base/security/security_audit.php"),
     ],
 ];
 

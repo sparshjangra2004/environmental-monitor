@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../includes/session.php';
 require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../config/mongo_db.php';
 requireLogin();
 
 $pageTitle = 'My Profile';
@@ -91,7 +92,11 @@ $reports = $conn->query("
     LIMIT 10
 ");
 
-$readingCount = $conn->query("SELECT COUNT(*) as c FROM environmental_readings")->fetch_assoc()['c'];
+try {
+    $readingCount = getMongoCollection()->countDocuments([]);
+} catch (Exception $e) {
+    $readingCount = 0;
+}
 
 $conn->close();
 require_once __DIR__ . '/../includes/header.php';

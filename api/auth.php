@@ -7,6 +7,14 @@ require_once __DIR__ . '/../config/jwt.php';
 require_once __DIR__ . '/../config/sanitize.php';
 require_once __DIR__ . '/../security/rate_limiter.php';
 require_once __DIR__ . '/../security/logger.php';
+require_once __DIR__ . '/../security/ip_blocker.php';
+
+$clientIP = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+if (isIPBlocked($clientIP)) {
+    http_response_code(403);
+    echo json_encode(['error' => 'Access denied. Your IP address has been blocked.']);
+    exit();
+}
 
 checkRateLimit('api/auth');
 
